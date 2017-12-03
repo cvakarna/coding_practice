@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<products>
+	<product code="001000">
+		<product-type>IN</product-type>
+		<price>537.00</price>
+		<on-hand>48</on-hand>
+		<manufacturer>Clemens-Altman</manufacturer>
+		<description>Silver Flute - Student</description>
+	</product>
+	<product code="001010">
+		<product-type>IN</product-type>
+		<price>876.00</price>
+		<on-hand>83</on-hand>
+		<manufacturer>Gabriel</manufacturer>
+		<description>Silver Flute</description>
+	</product>
+</products>

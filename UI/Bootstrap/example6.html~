@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap 101 Template</title>
+	<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+  
+</head>
+<body>
+	
+<div class="container">
+  <img src="cinqueterre.jpg" class="img-circle col-lg-3 col-sm-3 col-xs-3" alt="Cinque Terre">
+          <img src="cinqueterre.jpg" class="img-thumbnail col-lg-3 col-sm-3 col-xs-3" alt="Cinque Terre">
+            <img src="cinqueterre.jpg" class="img-rounded col-lg-3 col-sm-3 col-xs-3" alt="Cinque Terre">
+      <img src="cinqueterre.jpg" class="img-responsive col-lg-3 col-sm-3 col-xs-3" alt="Cinque Terre">
+
+</div>
+	
+</body>
+</html>

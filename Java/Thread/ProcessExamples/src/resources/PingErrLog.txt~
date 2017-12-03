@@ -1,0 +1,16 @@
+Error: Could not find or load main class src.main.com.com.bizruntime.process.Add2Numbers
+Error: Could not find or load main class src.main.java.Add2Numbers
+src/main/java/com/bizruntime/process/Add2Numbers.java:5: error: package org.apache.log4j does not exist
+import org.apache.log4j.Logger;
+                       ^
+src/main/java/com/bizruntime/process/Add2Numbers.java:8: error: cannot find symbol
+	private Logger log = Logger.getLogger(Add2Numbers.class);
+	        ^
+  symbol:   class Logger
+  location: class Add2Numbers
+src/main/java/com/bizruntime/process/Add2Numbers.java:8: error: cannot find symbol
+	private Logger log = Logger.getLogger(Add2Numbers.class);
+	                     ^
+  symbol:   variable Logger
+  location: class Add2Numbers
+3 errors

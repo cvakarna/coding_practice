@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+
+<fieldset>
+
+	<legend>Reasons to be happy</legend>
+	
+	<a class="selectAll" href="#">Select All</a>
+	<a class="deselectAll" href="#">Deselect All</a>
+	
+	<input name="reasons" id="iwokeup" type="checkbox" value="iwokeup" />
+	<label for="iwokeup">I woke up</label>
+
+	<input name="reasons" id="health" type="checkbox" value="health" />
+	<label for="health">My health</label>
+	
+	<input name="reasons" id="family" type="checkbox" value="family" />
+	<label for="family">My family</label>
+	
+	<input name="reasons" id="sunshine" type="checkbox" value="sunshine" />
+	<label for="sunshine">The sun is shining</label>
+
+</fieldset>
+
+	<script type="text/javascript">
+		$('fieldset .selectAll').click(function(event){
+			event.preventDefault();
+			$(this).siblings('input:checkbox').attr('checked',true);
+		});
+		$('fieldset .deselectAll').click(function(event){
+			event.preventDefault();
+			$(this).siblings('input:checkbox').removeAttr('checked');
+		});
+	</script>
+</body>
+</html>

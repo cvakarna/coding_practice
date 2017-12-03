@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	  <h2>Button Methods</h2>
+	<p>The <strong>toggle</strong> method makes the button look pressed. Click on both buttons, but also click outside the button afterwards to see the difference.</p>
+	  <button type="button" class="btn btn-default">Button (toggle)</button>
+	  <button type="button" class="btn btn-default">Button (no toggle)</button>
+</div>
+<h2>Js Loading</h2>
+	  <button id="bt1" type="button" class="btn btn-default">Button (no toggle)</button>
+
+<h2>Js Reset</h2>
+	  <button id="bt2" type="button" class="btn btn-default">Button (no toggle)</button>
+
+
+<script>
+$(document).ready(function(){
+    
+    $(".btn-default:first").click(function(){
+        $(this).button('toggle');
+    }); 
+  $("#bt1").click(function(){
+        $(this).button('loading');
+    });   
+    $(".btn").click(function(){
+	  $("#bt2").button("loading").delay(500).queue(function(){
+	        $(this).button('reset');
+	         $(this).dequeue();
+
+	    });   
+	});
+
+
+
+});
+</script>
+
+</body>
+</html>

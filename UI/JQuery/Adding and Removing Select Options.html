@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+
+<label for="colors">Colors</label>
+<select id="colors" multiple="multiple">
+<option>Black</options>
+<option>Blue</options>
+<option>Brown</options>
+</select>
+<button id="remove">Remove Selected Color(s)</button>
+<label for="newColorName">New Color Name</label>
+<input id="newColorName" type="text" />
+<label for="newColorValue">New Color Value</label>
+<input id="newColorValue" type="text" />
+<button id="add">Add New Color</button>
+
+	<script type="text/javascript">
+
+		$('#add').click(function(event){
+event.preventDefault();
+var optionName = $('#newColorName').val();
+var optionValue = $('#newColorValue').val()
+			$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');
+});
+		$('#remove').click(function(event){
+var $select = $('#colors');
+$('option:selected',$select).remove();
+});
+
+	</script>
+</body>
+</html>

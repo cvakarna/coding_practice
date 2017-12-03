@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+Reverse of number 234567 is 
+<div id="num"></div>
+
+<script type="text/javascript">
+	
+
+reverseNumber(234567);
+
+function reverseNumber(num){
+	num=num+"";
+	var result= num.split("").reverse().join("");
+	document.getElementById("num").innerHTML= ("<font color='red'>"+result+"</font>");
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) --><serviceGroup>
+    <service name="Converter">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="wtp.ConverterMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">wtp.ConverterSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="farenheitToCelsius" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://wtp">
+            <actionMapping>urn:farenheitToCelsius</actionMapping>
+            <outputActionMapping>urn:farenheitToCelsiusResponse</outputActionMapping>
+        </operation>
+        <operation name="celsiusToFarenheit" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://wtp">
+            <actionMapping>urn:celsiusToFarenheit</actionMapping>
+            <outputActionMapping>urn:celsiusToFarenheitResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

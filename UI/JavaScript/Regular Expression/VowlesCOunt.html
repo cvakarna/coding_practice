@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+Enter a Word to count vowles : <input type="text" id="senetence"/>
+
+<input type="submit" onclick="countingVowles()">
+<div id="count"></div>
+
+<script type="text/javascript">
+	
+	function countingVowles(){	
+		var word=document.getElementById("senetence").value;
+		document.getElementById("count").innerHTML=word.match(/[aeiou]/gi).length;
+
+	}
+
+</script>
+</body>
+</html>

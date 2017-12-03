@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+<fieldset id="shippingInfo">
+		<legend>Shipping Address</legend>
+<label for="shipName">Name</label>
+<input name="shipName" id="shipName" type="text" />
+<label for="shipAddress">Address</label>
+<input name="shipAddress" id="shipAddress" type="text" />
+</fieldset>
+<fieldset id="billingInfo">
+<legend>Billing Address</legend>
+<label for="sameAsShipping">Same as Shipping</label>
+<input name="sameAsShipping" id="sameAsShipping" type="checkbox"
+value="sameAsShipping" />
+<label for="billName">Name</label>
+<input name="billName" id="billName" type="text" />
+<label for="billAddress">Address</label>
+<input name="billAddress" id="billAddress" type="text" />
+</fieldset>
+	<script type="text/javascript">
+	$('#sameAsShipping').change(function(){
+		if( this.checked ){
+			$('#billingInfo input:text').attr('disabled','disabled').each(function(i){
+					var valueFromShippingInput = $('#shippingInfo input:text:eq('+i+')').val();
+					$(this).val( valueFromShippingInput );
+			});
+		} else {
+			$('#billingInfo input:text').removeAttr('disabled');
+		}
+	});
+
+	$('#shippingInfo input:text').bind('keyup change',function(){
+		if ( $('#sameAsShipping:checked').length ){
+			var i = $('#shippingInfo input:text').index( this );
+			var valueFromShippingInput = $(this).val();
+			$('#billingInfo input:text:eq('+i+')').val( valueFromShippingInput );
+		}
+	});
+	</script>
+</body>
+</html>

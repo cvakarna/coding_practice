@@ -1,0 +1,33 @@
+package com.bizruntime.Resorceexample1;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
+public class App1 {
+	static Logger logger = Logger.getLogger("App1");
+
+	public static String getFileInput(String input) {
+		StringBuilder builder = new StringBuilder("");
+		ClassLoader classLoader = App1.class.getClassLoader();
+		File file = new File(classLoader.getResource(input).getFile());
+		try {
+			Scanner sc = new Scanner(file);
+			while (sc.hasNextLine()) {
+				String data = sc.nextLine();
+				builder.append(data).append("\n");
+			}
+		} catch (IOException e) {
+
+			logger.error("IOException" + e.getMessage());
+		}
+		return builder.toString();
+	}
+
+	public static void main(String[] args) {
+		App1 app = new App1();
+		logger.debug("Data "+app.getFileInput("Resource.properties"));
+	}
+}

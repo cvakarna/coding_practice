@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.1.xsd"
+                      xmlns:jb="http://www.milyn.org/xsd/smooks/javabean-1.2.xsd"
+                      xmlns:ftl="http://www.milyn.org/xsd/smooks/freemarker-1.1.xsd">
+
+<jb:bean beanId="order" class="com.smooks.model.Order"	createOnElement="#document">
+	<jb:wiring property="header" beanIdRef="header" />
+</jb:bean>
+
+	<jb:bean beanId="header" class="com.smooks.model.Header"
+		createOnElement="header">
+				<jb:value property="orderId" data="orderId"/>
+				<jb:value property="orderStatus" data="orderStatus"/>
+		<jb:wiring property="customer" beanIdRef="customer" />		
+	    <jb:wiring property="orderItems" beanIdRef="orderItems" />					
+	</jb:bean>
+	
+	<jb:bean beanId="customer" class="com.smooks.model.Customer"
+		createOnElement="header">
+				<jb:value property="userName" data="orderId"/>
+				<jb:value property="firstName" data="orderStatus"/>
+				<jb:value property="lastName" data="orderStatus"/>
+				<jb:value property="state" data="orderStatus"/>
+	</jb:bean>
+		
+	<jb:bean beanId="orderItems" class="java.util.ArrayList"
+		createOnElement="order">
+		<jb:wiring beanIdRef="orderItem" />
+	</jb:bean>
+	<jb:bean beanId="orderItem" class="com.smooks.model.OrderItem"
+		createOnElement="order">
+		<jb:value property="productId" data="productId" />
+		<jb:value property="quantity"  data="quantity" />
+		<jb:value property="price" data="price" />
+		<jb:value property="orderId"  data="orderId" />
+	</jb:bean>
+
+    <ftl:freemarker applyOnElement="#document">
+        <ftl:template>order.ftl</ftl:template>
+    </ftl:freemarker>
+   
+</smooks-resource-list>

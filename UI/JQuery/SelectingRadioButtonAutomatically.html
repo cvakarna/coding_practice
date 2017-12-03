@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+<p>How did you hear about us?</p>
+<ul id="chooseSource">
+<li>
+<input name="source" id="source1" type="radio" value="www"
+<label for="source1">Website or Blog</label>
+</li>
+<li>
+<input name="source" id="source2" type="radio" value="mag"
+<label for="source2">Magazine</label>
+</li>
+<li>
+<input name="source" id="source3" type="radio" value="per"
+<label for="source3">Friend</label>
+</li>
+<li>
+<input name="source" id="source4" type="radio" value="oth"
+<label for="source4">Other</label>
+<input name="source4txt" id="source4txt" type="text" />
+</li>
+</ul>
+	<script type="text/javascript">
+	
+		$('#chooseSource input:text').each(function(){
+			var $inputTxt = $(this);
+			var $radioBtn = $inputTxt.siblings('input:radio');
+			$inputTxt.blur(function(){
+				if ( $inputTxt.val() != '' ) {
+					$radioBtn.attr('checked',true);
+				}
+			});
+			$radioBtn.change(function(){
+				if ( this.checked ) { $inputTxt.focus(); }
+			});
+		});
+	</script>
+</body>
+</html>

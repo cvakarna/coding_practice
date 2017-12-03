@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+<input type="text" id="uname">
+<input type="text" id="password">
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+		var $inputtxt=$('#uname');
+		if($inputtxt.val()==''){
+			$inputtxt.focus();
+		}
+	});
+
+</script>
+</body>
+</html>

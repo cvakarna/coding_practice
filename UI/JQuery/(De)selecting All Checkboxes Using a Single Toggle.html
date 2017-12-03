@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+<fieldset>
+<legend>Reasons to be happy</legend>
+<input name="reasons" id="toggleAllReasons" type="checkbox" class="toggle" />
+<label for="toggleAllReasons" class="toggle">Select All</label>
+<input name="reasons" id="iwokeup" type="checkbox" value="iwokeup" />
+<label for="iwokeup">I woke up</label>
+<input name="reasons" id="health" type="checkbox" value="health" />
+<label for="health">My health</label>
+<input name="reasons" id="family" type="checkbox" value="family" />
+<label for="family">My family</label>
+<input name="reasons" id="sunshine" type="checkbox" value="sunshine" />
+<label for="sunshine">The sun is shining</label>
+</fieldset>
+	<script type="text/javascript">
+		$('fieldset .toggle:checkbox').each(function(){
+				var $toggle = $(this);
+				var $checkboxes = $toggle.siblings('input:checkbox');
+				$toggle.change(function(){
+	if ( this.checked ) {
+		$checkboxes.attr('checked','checked');
+	} else {
+		$checkboxes.removeAttr('checked');
+		}
+	})
+				$checkboxes.change(function(){
+	if ( this.checked ) {
+		if ( $checkboxes.length == $checkboxes.filter(':checked').length ) {
+			$toggle.attr('checked','checked');
+		}
+	} else {
+		$toggle.removeAttr('checked');
+		}
+	}).eq(0).trigger('change'); 
+});
+
+	</script>
+</body>
+</html>

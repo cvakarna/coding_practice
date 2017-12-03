@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap 101 Template</title>
+	<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	
+<div class="container">
+    <h2>Button Colors</h2>
+  <button type="button" class="btn">Basic Button</button>
+  <button type="button" class="btn btn-default">Basic Button</button>
+  <button type="button" class="btn btn-primary">Default Button</button>
+  <button type="button" class="btn btn-success">Success Button</button>
+  <button type="button" class="btn btn-info">Info Button</button>
+  <button type="button" class="btn btn-warning">Warning Button</button>
+  <button type="button" class="btn btn-danger">Danger Button</button>
+  <button type="button" class="btn btn-link">Link</button>
+
+    <h2> Button Sizes</h2>
+  <button type="button" class="btn btn-lg">Large</button>
+    
+  <button type="button" class="btn btn-sm">Small</button>
+    
+  <button type="button" class="btn btn-xs">Extra Small</button>
+    
+  <h2>Active/Disabled Buttons </h2>
+
+    <button type="button" class="btn btn-info">Info Button</button>
+      <button type="button" class="btn btn-info active">Active Button</button>
+        <button type="button" class="btn btn-info disabled">Disabled Button</button>
+
+<h2>Block-level Button</h2>
+
+    <button type="button" class="btn btn-info btn-block" >Block Level Button</button>
+     
+</div>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

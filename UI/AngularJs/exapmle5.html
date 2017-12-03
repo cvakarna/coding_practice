@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+	<title>TO DO List</title>
+	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script type="text/javascript">
+		var model = {
+			user: "Adam",
+			items: [{ action: "Buy Flowers", done: false },
+				{ action: "Get Shoes", done: false },
+				{ action: "Collect Tickets", done: true },
+				{ action: "Call Joe", done: false }
+				]
+			};
+ 
+		var todoApp = angular.module("todoApp", []);
+		todoApp.controller("ToDoCtrl", function ($scope) {
+			$scope.todo = model;
+
+			$scope.inCompleteCount=function(){
+				var count=0;
+				angular.forEach($scope.todo .items,function(item){
+					if(!item.done){
+						count++;
+					}
+				});
+				return count;
+			}
+
+			$scope.warningLevel=function(){
+				return $scope.inCompleteCount()<3? "label-success" : "label-warning" ;
+			}
+		});
+	</script>
+</head>
+<body ng-controller="ToDoCtrl">
+	<div class="page-header">
+		<h1>{{todo.user}}'s To Do List
+			<span class="label label-default"  ng-class="warningLevel()" ng-hide="inCompleteCount()==0">
+				{{inCompleteCount()}}
+			</span>
+		</h1>
+	</div>
+	<div class="panel">
+		<div class="input-group">
+			<input class="form-control" />
+			<span class="input-group-btn">
+				<button class="btn btn-default">Add</button>
+			</span>
+		</div>
+		<h1>Testing tool</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Done</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in todo.items">
+					<td>{{item.action}}</td>
+					<td><input type="checkbox" ng-model="item.done" /></td>
+				
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

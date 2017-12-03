@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="input.xsd">
+	<staff id="1001">
+		<firstname>Messi</firstname>
+		<lastname>M</lastname>
+		<nickname>Messi</nickname>
+		<salary>100000</salary>
+	</staff>
+	<staff id="2001">
+		<firstname>Ronaldo</firstname>
+		<lastname>R</lastname>
+		<nickname>Ronaldo</nickname>
+		<salary>100000</salary>
+	</staff>
+</company>

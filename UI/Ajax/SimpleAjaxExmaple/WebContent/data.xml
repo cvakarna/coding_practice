@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people>
+ <person>
+  <firstName>Lionel</firstName>
+  <lastName>Messi</lastName>
+ </person>
+ <person>
+  <firstName>Sachin Tendulkar</firstName>
+  <lastName></lastName>
+ </person>
+
+</people>
