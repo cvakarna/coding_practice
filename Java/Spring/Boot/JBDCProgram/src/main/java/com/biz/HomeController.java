@@ -1,11 +1,22 @@
 package com.biz;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 @RestController
 public class HomeController {
@@ -13,15 +24,27 @@ public class HomeController {
 	@Autowired
 	JdbcTemplate sql;
 
+	@Autowired
+	TableUtil util;
+	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String getTablesList() {
-		SqlRowSet rowSet = sql.queryForRowSet("SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE TABLE_NAME LIKE 'access_type'");
-		String col1 = "HI";
-		while (rowSet.next()) {
-			col1 = rowSet.getString("TABLE_NAME");
-		}
-		return col1;
+	public  String getTableList(  String tableName) {
+		SqlRowSet rowSet = sql.queryForRowSet(
+				"SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE TABLE_NAME LIKE '" + tableName + "'");
+		Gson gson = new Gson();
+		return gson.toJson(this.util.getEntitiesFromResultSet(rowSet));
 
 	}
+	
+	
+	@RequestMapping(value = "/tableDetails", method = RequestMethod.GET)
+	public  String getTableDetails(@RequestParam(value = "tableName")  String tableName) {
+		SqlRowSet rowSet = sql.queryForRowSet(
+				"SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE TABLE_NAME LIKE '" + tableName + "'");
+		Gson gson = new Gson();
+		return gson.toJson(this.util.getEntitiesFromResultSet(rowSet));
 
+	}
+	
+	
 }
