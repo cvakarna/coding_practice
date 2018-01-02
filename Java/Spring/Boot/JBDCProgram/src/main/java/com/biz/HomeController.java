@@ -28,22 +28,35 @@ public class HomeController {
 	TableUtil util;
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public  String getTableList(  String tableName) {
+	public  String getTableList() {
+		
+		return null;
+	}
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public  String createTable(@RequestParam(value = "tableName")  String tableName) {
+	
+		return null;
+
+	}
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public  String readTable(@RequestParam(value = "tableName")  String tableName) {
 		SqlRowSet rowSet = sql.queryForRowSet(
 				"SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE TABLE_NAME LIKE '" + tableName + "'");
 		Gson gson = new Gson();
 		return gson.toJson(this.util.getEntitiesFromResultSet(rowSet));
 
 	}
-	
-	
-	@RequestMapping(value = "/tableDetails", method = RequestMethod.GET)
-	public  String getTableDetails(@RequestParam(value = "tableName")  String tableName) {
-		SqlRowSet rowSet = sql.queryForRowSet(
-				"SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE TABLE_NAME LIKE '" + tableName + "'");
-		Gson gson = new Gson();
-		return gson.toJson(this.util.getEntitiesFromResultSet(rowSet));
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public  String updateTable(@RequestParam(value = "tableName")  String tableName) {
+		
+		return null;
 
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public  String deleteTable(@RequestParam(value = "tableName")  String tableName) {
+		return null;
 	}
 	
 	
